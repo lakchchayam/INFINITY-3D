@@ -1,0 +1,75 @@
+body {
+    padding-top: 50px;
+    /* Move the content down because we have a fixed navbar that is 50px tall */
+}
+/* @media (min-width: 768px) {
+    .sidebar-left {
+        position: fixed;
+        top: 51px;
+        bottom: 0;
+        left: 0;
+        z-index: 1000;
+        display: block;
+        padding-top: 0px;
+        padding-right: 20px;
+        padding-bottom: 20px;
+        overflow-x: hidden;
+        overflow-y: auto;
+        border-right: 1px solid #eee;
+    }
+} */
+@media (max-width: 767px) {
+    .section-heading .section-toggle:after {
+        font-family: 'Glyphicons Halflings';
+        content: "\e114";
+        float: none;
+        color: lightgrey;
+        /* symbol for opening sections */
+    }
+    .section-heading .section-toggle.collapsed:after {
+        content: "\e080";
+        /* symbol for closing sections */
+    }
+    a.section-toggle  {
+        text-decoration: none;
+    }
+}
+
+.main {
+    padding: 0px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 15px;
+}
+/* @media (min-width: 768px) {
+    padding-left:20px;
+    padding-right:20px;
+} 
+.section-heading {
+}*/
+.sub-header {
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+    cursor: default;
+    -webkit-user-select: none;  /* Chrome all / Safari all */
+    -moz-user-select: none;     /* Firefox all */
+    -ms-user-select: none;      /* IE 10+ */
+}
+.section-body>ul {
+    padding-left: 0px;
+}
+/* Controls the style of enabled and disabled layers */
+.list-group-item {
+    font-style: italic;
+}
+.list-group-item.active {
+    font-style: normal;
+}  
+#Moksha{
+    position: absolute;
+    z-index: 10001;
+    bottom: 16px;
+    right: 20px;
+    padding: 2px 8px;
+    background-color: rgb(2, 0, 27);
+}

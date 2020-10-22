@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="ESA-NASA WebWorldWind application framework with Bootstrap and KnockoutJS by Bruce Schubert">
+        <meta name="author" content="Bruce Schubert">
+        
+        <title>Infinity</title>
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/slate/bootstrap.min.css" type="text/css" />
+        <link rel="stylesheet" href="style.css">            
+    </head>
+
+    <body>
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" target="_blank">Infinity</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-navbar">
+                    <div>
+                        <form id="search" class="navbar-form navbar-left" role="search">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Destination" id="searchText" data-bind="value: searchText, valueUpdate: 'keyup', event: {keypress: onEnter}" />
+                            </div>
+                            <button id="searchButton" class="btn btn-primary" type="submit" data-bind="click: $root.performSearch">Go To</button>
+                        </form>
+                    </div>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li id="projections" class="dropdown">
+                            <!-- <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span data-bind="text: currentProjection"></span> <span class="caret"></span></a> -->
+                            <ul id="projections-menu" class="dropdown-menu" data-bind="foreach: $root.projections">
+                                <li data-bind="click: $root.changeProjection">
+                                    <a><span data-bind="text: $data"></span></a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container-fluid">
+            <div class="row">
+                <div id="left-sidebar" class=" tab-content">
+                    <div id="layers" class="tab-pane" role="tabpanel">
+                        <div id="layers-body" class="section-body collapse in">
+                            <div class="list-group" data-bind="foreach: layers">
+                                <button class="list-group-item btn btn-block" data-bind="click: $root.toggleLayer, css: {active: $data.layerEnabled}">
+                                    <span data-bind="text: $data.displayName"></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="globe" class="main" style="height: calc(100vh - 100px);">\
+                    <div id="windy"></div>
+                    <div class="row" style="height: 100%;">
+                        <!-- Globe -->
+                        <div class="col-md-12" style="height: 100%;">
+                            <div class="section-heading" style="width: 100%">
+                                <h4 class="sub-header">
+                                    <span class="glyphicon glyphicon-globe" aria-hidden="true" style="padding-right:5px;"></span>
+                                    Globe
+                                </h4>
+                            </div>
+                            <!-- NASA Web World Wind -->
+                            <canvas id="canvasOne" style="width: 100%; height: 100%; 
+                                    background-color: rgb(0, 0, 0); 
+                                    border:2px solid #ffffff;" data-bind="style: { cursor: dropIsArmed() ? 'crosshair' : 'default' }">
+                            </canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>        
+        <!-- Edit Marker Modal -->
+        <div class="modal fade" id="editMarkerModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                        </button>
+                        <h4 class="modal-title" id="myModalLabel">Edit Marker</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="input-group">      
+                        </div>          
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="Moksha">
+            <h6>INFINITY</h6>
+        </div>
+        <script src="https://code.jquery.com/jquery.min.js"></script>
+        <script src="https://api.windy.com/assets/map-forecast/libBoot.js."></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js"></script>
+        <script src="https://files.worldwind.arc.nasa.gov/artifactory/web/0.9.0/worldwind.min.js"></script>
+        <script src="script.js"></script>
+    </body>
+
+</html>
