@@ -1,2 +1,10 @@
 # Infinity.3d
-“Infinity.3D”, a new open-source tool for the interactive three-dimensional (3-D) visualization of nu-merical ensemble weather predictions. The tool has been developed to support weather forecasting during aircraft-based atmospheric field campaigns however, it is applicable to further forecasting, research and teaching activities. His work approaches challenging topics related to the visual analysis of numerical atmospheric model output 3-D visualization, ensemble visualization and how both can be used in a meaningful way suited to weather forecasting. Infinity.3D builds a bridge from proven 2-D visualization methods commonly used in meteorology to 3-D visualization by combining both visualization types in a 3-D context. The issue of spatial perception in the 3-D view and present approaches to using the ensemble to allow the user to assess forecast
+No matter how sophisticated our Earth system models may be, the quality of the forecasts they produce crucially depends on the accuracy of the initial conditions.
+
+Using the model state from a previous forecast as an estimate of the initial conditions is not good enough: all forecasts come with errors, which grow over time.
+
+A vital corrective is provided by weather observations.
+
+Millions of them are made every day. They come from many sources, including satellites, aircraft, ground stations, ships, drifters and balloons.
+
+However, on their own they cannot provide the initial conditions, either: they are unevenly distributed in space and time, and they too come with errors.
